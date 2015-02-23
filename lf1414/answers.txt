@@ -1,0 +1,69 @@
+IPython
+Question 1
+To locate the file that os.path.abspath function is defined in:
+
+import os
+os.path.abspath??
+
+Type:   function
+String form: <function abspath at 0x01D0A1B0>
+File:   c:\users\mslil_000\anaconda\lib\ntpath.py
+Definition: os.path.abspath(path)
+Source:
+    def abspath(path):
+    ""Returns the absolute version of a path.""
+
+    if path: #Empty path must return current working directory.
+        try:
+            path = _getfullpathname(path)
+        except WindowsError:
+            pass # Bad path - return unchanged
+    elif isinstance(path, unicode):
+        path = os.getcwdu()
+    else:
+        path = os.getcwd()
+    return normpath(path)
+
+Question 2
+num = len(os.listdir('/etc'))
+Working from inside to out, os.listdir creates a list of the files or objects in the directory. Then, len gives the length of the list. We set it equal to num.
+
+Question 3
+import math
+
+math.sqrt(num)
+
+I imported the math library so that I could use math.sqrt to get the sqrt of num. The value is 15.297058540778355.
+
+Question 4
+
+%timeit x**2
+10000000 loops, best of 3: 106 ns per loop
+
+%timeit x*x
+10000000 loops, best of 3: 77.9 ns per loop
+
+import numpy
+
+%timeit numpy.square(x)
+100000 loops, best of 3: 2.57 µs per loop
+
+Based on this, the numpy.square is the fastest method for squaring the number.
+
+Question 5
+
+%lsmagic
+
+Available line magics:
+%alias  %alias_magic  %autocall  %automagic  %autosave  %bookmark  %cd  %clear  %colors  %config  %connect_info  %debug  %dhist  %dirs  %doctest_mode  %ed  %edit  %env  %gui  %guiref  %hist  %history  %install_default_config  %install_ext  %install_profiles  %killbgscripts  %less  %load  %load_ext  %loadpy  %logoff  %logon  %logstart  %logstate  %logstop  %lsmagic  %macro  %magic  %man  %matplotlib  %more  %notebook  %page  %pastebin  %pdb  %pdef  %pdoc  %pfile  %pinfo  %pinfo2  %popd  %pprint  %precision  %profile  %prun  %psearch  %psource  %pushd  %pwd  %pycat  %pylab  %qtconsole  %quickref  %recall  %rehashx  %reload_ext  %rep  %rerun  %reset  %reset_selective  %run  %save  %sc  %store  %sx  %system  %tb  %time  %timeit  %unalias  %unload_ext  %who  %who_ls  %whos  %xdel  %xmode
+
+Available cell magics:
+%%!  %%HTML  %%SVG  %%bash  %%capture  %%debug  %%file  %%html  %%javascript  %%latex  %%perl  %%prun  %%pypy  %%python  %%python3  %%ruby  %%script  %%sh  %%svg  %%sx  %%system  %%time  %%timeit  %%writefile
+
+There are 24 cell magics. 
+
+
+PyDev
+Question 5
+'Hello World!' appears in the console after the program has complete.
+
